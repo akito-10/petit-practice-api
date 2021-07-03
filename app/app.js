@@ -6,7 +6,11 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const corsOption = {
-  origin: ["http://127.0.0.1:5501", "http://127.0.0.1:5502"],
+  origin: [
+    "http://127.0.0.1:5501",
+    "http://127.0.0.1:5502",
+    "https://petit-practice-77e76.web.app",
+  ],
   credentials: true,
 };
 app.use(cors(corsOption));
