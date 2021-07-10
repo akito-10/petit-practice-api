@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 8000;
 const Practice = require("./api/models/practiceModel");
+const Event = require("./api/models/eventModel");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
@@ -22,8 +23,11 @@ connectDB();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const routes = require("./api/routers/practiceRouter");
-routes(app);
+const practiceRoutes = require("./api/routers/practiceRouter");
+practiceRoutes(app);
+
+const eventRoutes = require("./api/routers/eventRouter");
+eventRoutes(app);
 
 app.listen(PORT, () => {
   console.log(`Post app listening on port ${PORT}`);
