@@ -3,6 +3,7 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 const Practice = require("./api/models/practiceModel");
 const Event = require("./api/models/eventModel");
+const Password = require("./api/models/passwordModel");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
@@ -28,6 +29,9 @@ practiceRoutes(app);
 
 const eventRoutes = require("./api/routers/eventRouter");
 eventRoutes(app);
+
+const passwordRoutes = require("./api/routers/passwordRouters");
+passwordRoutes(app);
 
 app.listen(PORT, () => {
   console.log(`Post app listening on port ${PORT}`);
