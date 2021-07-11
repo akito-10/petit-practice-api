@@ -5,7 +5,11 @@ exports.fetch_event = async (req, res) => {
   await Event.find({}, (err, event) => {
     if (err) res.send(err);
 
-    res.json(event);
+    const body = {
+      ...event[0]._doc,
+      eventDate: event[0].eventDate.split("-").slice(1).join("/"),
+    };
+    res.json([body]);
   });
 };
 
